@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  @apply text-sm text-white;
+  background: linear-gradient(-45deg, #1a1b1e, #2B2D31, #1E1F22, #313338);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Input styles */
+input, textarea {
+  @apply bg-[#383A40] text-white transition-colors duration-200;
+}
+
+input::placeholder, textarea::placeholder {
+  @apply text-[#72767D];
+}
+
+/* Message styles */
+.message-bubble {
+  @apply bg-[#40444B] text-[#DCDDDE] transition-all duration-200;
+  animation: slideIn 0.3s ease-out;
+}
+
+.message-bubble.own {
+  background: linear-gradient(135deg, #5865F2, #4752C4);
+  @apply text-white shadow-lg;
+}
+
+/* Button styles */
+button {
+  @apply transition-all duration-200;
+}
+
+button:not(:disabled):hover {
+  @apply transform scale-105;
+}
+
+button:active {
+  @apply transform scale-95;
+}
+
+/* Header gradient */
+.header-gradient {
+  background: linear-gradient(135deg, #5865F2, #7289DA);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
+}
